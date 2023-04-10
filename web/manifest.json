@@ -1,0 +1,35 @@
+{
+    "name": "Kratom dosage calculator",
+    "short_name": "Kratom dosage",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#27B300",
+    "theme_color": "#27B300",
+    "description": "Kratom dosage calculator to help you find the right dose for your need and reduce harm effects.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
