@@ -42,7 +42,7 @@ class CalcInfoCard extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              'Kind of multiplier:',
+              'Kind of user multiplier:',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(

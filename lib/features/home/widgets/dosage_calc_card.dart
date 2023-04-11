@@ -21,7 +21,7 @@ class DosageCalcCard extends HookConsumerWidget {
       elevation: 5,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 20),
-        constraints: const BoxConstraints(maxWidth: 600, maxHeight: 230),
+        constraints: const BoxConstraints(maxWidth: 600),
         child: Form(
           key: formKey.value,
           child: Padding(

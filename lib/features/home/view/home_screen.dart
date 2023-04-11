@@ -16,15 +16,18 @@ class HomeScreen extends HookConsumerWidget {
           title: const Text('Kratom dosage calculator'),
         ),
         body: SingleChildScrollView(
-          child: Column(
-            children: const [
-              SizedBox(height: 50, width: double.infinity),
-              WarningCard(),
-              SizedBox(height: 20),
-              DosageCalcCard(),
-              SizedBox(height: 20),
-              CalcInfoCard(),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
+            child: Column(
+              children: const [
+                SizedBox(width: double.infinity),
+                WarningCard(),
+                SizedBox(height: 20),
+                DosageCalcCard(),
+                SizedBox(height: 20),
+                CalcInfoCard(),
+              ],
+            ),
           ),
         ),
       ),

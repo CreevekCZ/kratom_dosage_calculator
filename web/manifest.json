@@ -1,7 +1,7 @@
 {
     "name": "Kratom dosage calculator",
     "short_name": "Kratom dosage",
-    "start_url": ".",
+    "start_url": "./",
     "display": "standalone",
     "background_color": "#27B300",
     "theme_color": "#27B300",
