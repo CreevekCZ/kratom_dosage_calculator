@@ -35,4 +35,4 @@ The Kratom Dose Calculator is a valuable resource for anyone who wants to enjoy 
 
 ## Try it
 
-[Click here!](https://creevekcz.github.io/kratom_dosage_calculator/)
+[Click here!](https://xabar-eu.github.io/kratom_dosage_calculator/)

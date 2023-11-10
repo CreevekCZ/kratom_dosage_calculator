@@ -123,69 +123,69 @@ class _DosageCalcCardState extends ConsumerState<DosageCalcCard> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 100,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Switch(
-                        value: shouldCalculateNumberOfCapsules,
-                        onChanged: (value) {
-                          setState(() {
-                            shouldCalculateNumberOfCapsules = value;
-                          });
-                        },
+                Row(
+                  children: [
+                    Switch(
+                      value: shouldCalculateNumberOfCapsules,
+                      onChanged: (value) {
+                        setState(() {
+                          shouldCalculateNumberOfCapsules = value;
+                        });
+                      },
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Calculate number of capsules',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                  ],
+                ),
+                AnimatedVisibility(
+                  visible: shouldCalculateNumberOfCapsules,
+                  child: SizedBox(
+                    height: 100,
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Capsule weight in grams',
                       ),
-                      Text(
-                        'Calculate number of capsules',
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
-                      const Spacer(),
-                      AnimatedVisibility(
-                        visible: shouldCalculateNumberOfCapsules,
-                        child: SizedBox(
-                          width: 200,
-                          height: 100,
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: 'Capsule weight in grams',
-                            ),
-                            keyboardType: TextInputType.number,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                RegExp(r'^\d*\.?\d*'),
-                              ),
-                            ],
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your weight of one capsule';
-                              }
-                              return null;
-                            },
-                            onChanged: (value) {
-                              if (value.isEmpty) {
-                                capsulesWeight = 0;
-                                return;
-                              }
-
-                              capsulesWeight = double.parse(value);
-                            },
-                            onFieldSubmitted: (_) =>
-                                calculateDosage(context, ref),
-                          ),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                          RegExp(r'^\d*\.?\d*'),
                         ),
-                      )
-                    ],
+                      ],
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your weight of one capsule';
+                        }
+                        return null;
+                      },
+                      onChanged: (value) {
+                        if (value.isEmpty) {
+                          capsulesWeight = 0;
+                          return;
+                        }
+
+                        capsulesWeight = double.parse(value);
+                      },
+                      onFieldSubmitted: (_) => calculateDosage(context, ref),
+                    ),
                   ),
                 ),
-                FilledButton.tonal(
+                FilledButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 20,
+                    ),
+                  ),
                   onPressed: () => calculateDosage(context, ref),
                   child: Text(
                     'Calculate',
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelLarge!
-                        .copyWith(fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                   ),
                 ),
               ],
