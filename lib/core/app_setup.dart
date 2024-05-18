@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:api_com/api_com.dart';
 import 'package:flutter/foundation.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
@@ -10,18 +9,10 @@ class AppSetup {
     setupWeb();
 
     await _setupHive();
-
-    await _setupApiCom();
   }
 
   Future<void> _setupHive() async {
     await Hive.initFlutter();
-  }
-
-  Future<void> _setupApiCom() async {
-    Com.config = ComConfig(
-      preDecorder: (payload) => payload['payload'],
-    );
   }
 
   void setupWeb() {

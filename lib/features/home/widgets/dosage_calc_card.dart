@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kratom_dosage_calculator/core/widgets/animated_visibility.dart';
 import 'package:kratom_dosage_calculator/features/home/enums/kratom_state_enum.dart';
 import 'package:kratom_dosage_calculator/features/home/enums/kratom_user_status_enum.dart';
@@ -198,13 +198,14 @@ class _DosageCalcCardState extends ConsumerState<DosageCalcCard> {
 
   void calculateDosage(BuildContext context, WidgetRef ref) {
     if (formKey.currentState!.validate()) {
-      final kratomCalculator = ref.read(
-        kratomCalculatorProvider(
-          weight: weight.toDouble(),
+      final kratomCalculator = ref.read(kratomCalculatorProvider(
+        KratomCalculatorParams(
+          weight: weight,
           userStatus: userStatus,
           state: state,
         ),
-      );
+      ));
+
       showModalBottomSheet(
         context: context,
         builder: (context) {

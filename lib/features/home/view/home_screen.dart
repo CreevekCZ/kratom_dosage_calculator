@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kratom_dosage_calculator/core/widgets/unfocuser.dart';
 import 'package:kratom_dosage_calculator/features/home/widgets/calc_info_card.dart';
 import 'package:kratom_dosage_calculator/features/home/widgets/dosage_calc_card.dart';
 import 'package:kratom_dosage_calculator/features/home/widgets/warning_card.dart';
 
-class HomeScreen extends HookConsumerWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
