@@ -1,0 +1,45 @@
+name: Dart Analysis and Build Pages
+
+on: [push]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Dart SDK
+      uses: dart-lang/setup-dart@v1.2
+      with:
+        sdk: stable
+
+    - name: Analyze project source
+      run: dart analyze
+
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.actor != 'github-actions[bot]'
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v1
+      with:
+        channel: 'stable'  
+
+    - run: flutter pub get
+
+    - name: Build for github pages
+      run: bash github_pages_builder.sh
+
+    - name: Configure Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email '[bot]@noreply.github.com'
+
+    - name: Commit and push changes
+      run: |
+        git add docs/*
+        git commit -m "Update docs by GitHub Actions"
+        git push --force
